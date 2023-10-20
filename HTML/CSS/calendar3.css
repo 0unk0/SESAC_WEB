@@ -1,0 +1,39 @@
+
+
+body {
+    font-family:fantasy;
+    text-align: center;
+}
+
+#calendar{
+    width: 25%;
+    height: 300px;
+    border: 2px solid;
+    border-collapse: collapse;
+
+    margin: auto;
+}
+
+th{
+    background-color: rgb(234, 234, 196);
+    border: 1px solid black;
+    border-radius: 10px;
+    
+}
+
+td{
+    padding: 10px;
+    text-align: center;
+    border: 1px solid black;
+
+}
+
+th:first-child, 
+td:first-child {
+    color: red;
+}
+
+th:last-child, 
+td:last-child{
+    color:blue;
+}
