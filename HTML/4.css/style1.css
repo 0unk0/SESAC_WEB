@@ -1,0 +1,50 @@
+p{
+    color: red;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 1em;
+    font-weight: bolder;
+    border-style: solid;
+    border-left: 1px;
+    border-right: 1px;
+    border-width: 5px;
+    width: 50%;
+    height: 50px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+
+.myid1{
+    background-color: blue;
+}
+
+p.myclass1 {
+    color: green;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 1em;
+    font-weight: bolder;
+    background-color: antiquewhite;
+    border-style: dotted;
+    border-width: 5px;
+    width: 50%;
+    height: 50px;
+    padding: 10px;
+    box-sizing: border-box;
+    background-image: url(../images/sesac.png);
+    background-size: 50px;
+    background-position-y: 5px ;
+}ㄴ
+
+.myclass2 {
+    color:cornflowerblue;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 1em;
+    font-weight: bolder;
+    border-style:double;
+    border-width: 5px;
+    width: 50%;
+    height: 50px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
