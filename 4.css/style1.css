@@ -14,8 +14,8 @@ p{
 }
 
 
-.myid1{
-    background-color: blue;
+#myid1{
+    color: blue;
 }
 
 p.myclass1 {
@@ -33,7 +33,7 @@ p.myclass1 {
     background-image: url(../images/sesac.png);
     background-size: 50px;
     background-position-y: 5px ;
-}ㄴ
+}
 
 .myclass2 {
     color:cornflowerblue;
