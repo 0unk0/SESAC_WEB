@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .box{
+                width: 100px;
+                height: 100px;
+                background-color: red;
+                position:relative;
+                animation-name:moveLeft;
+                animation-duration: 2.0s;
+                animation-timing-function: ease;
+                animation-iteration-count: infinite;
+                animation-direction: alternate;
+            }
+            @keyframes moveLeft{
+                0%{left: 0;}
+                100%{left: 200px;}
+            }
+
+            .text{
+                color:black;
+                animation-name: fadeOut;
+                animation-duration: 3s;
+                animation-timing-function: linear;
+                animation-iteration-count: 1;
+                animation-delay: 1s;
+            }
+
+            @keyframes fadeOut{
+                0%{opacity:1;}
+                100%{opacity: 0;}
+            }
+
+            .circle{
+                width: 100px;
+                height: 100px;
+                background-color: blue;
+                border-radius: 40%;
+                animation-name:rotateAndScale;
+                animation-duration: 3s;
+                animation-timing-function: ease-in-out;
+                animation-iteration-count: infinite;
+                
+            }
+
+            @keyframes rotateAndScale{
+                0%{transform: rotate(0deg) scale(1);}
+                50%{transform: rotate(180deg) scale(1.5);}
+                100%{transform: rotate(360deg) scale(1);}
+            }
+
+            .image{
+                width: 200px;
+                height: 200px;
+                animation-name: shake;
+                animation-duration: 0.5s;
+                animation-timing-function: linear;
+                animation-iteration-count: infinite;
+            }
+
+            @keyframes shake {
+                0%{transform: translateX(0);}
+                25%{transform: translateX(-10px) rotate(-5deg);}
+                75%{transform: translateX(10px) rotate(5deg);}
+                100%{transform: translateX(0);}
+            }
+
+            .dropbox{
+                width: 100px;
+                height: 100px;
+                background-color: aqua;
+                animation-name: dropAndFade;
+
+            }
+
+            .dropbox:hover{
+                animation-duration: 3s;
+                animation-iteration-count: infinite;
+                animation-timing-function: ease;
+            }
+            
+            @keyframes dropAndFade {
+                0%{ transform: translateY(0); opacity: 1;}
+                100%{ transform: translateY(300px); opacity: 0; }
+            }
+
+
+        </style>
+    </head>
+
+    <body>
+        <div class="box"></div><br>
+        <p class="text">Fade out Animation</p>
+        <div class="circle"></div>
+        <br>
+        <img class="image" src="../images/미어캣 쿼카.jpeg"></img><br>
+        <div class="dropbox"></div>
+    </body>
+</html>
