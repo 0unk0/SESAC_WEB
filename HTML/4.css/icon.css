@@ -1,0 +1,35 @@
+.fa-unlock{
+    font-size: 10em;
+    z-index: 0;
+}
+
+.fa-lock-open{
+    font-size: 10em;
+    z-index:1;
+    position:absolute;
+    top:10px;
+    left: 10px;
+    visibility: hidden;
+    
+}
+
+/* 
+.fa-unlock:hover{
+    transition-property: all 1s;
+    visibility: hidden;
+    transform: rotate(.001deg); 
+    
+}
+
+.fa-unlock:hover + .fa-lock-open{
+    visibility: visible;
+    transform: rotate(.001deg); 
+} */
+
+.fa-unlock:hover {
+    animation-name: change;
+    animation-timing-function: ease;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+}
+

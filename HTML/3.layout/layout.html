@@ -13,8 +13,7 @@
                 color:white;
                 text-align: center;
                 padding: 10px;
-                margin-bottom:10px;
-                border:1px solid black;
+
             }
 
             nav{
@@ -23,8 +22,7 @@
                 background-color:aqua;
                 height: 300px;
                 padding:10px;
-                border: 1px solid black;
-                /* margin-bottom: 10px; */
+
             }
 
             article{
@@ -33,16 +31,22 @@
                 background-color: aquamarine;
                 height: 300px;
                 padding:10px;
-                border: 1px solid black;
-                /* margin-bottom: 10px; */
+
             }
+
+            @media(max-width: 600px){
+                nav, article{
+                width: 100%;
+                }
+            }
+
+        
             footer{
                 margin-top:10px;
                 background-color:blanchedalmond;
                 text-align: center; 
                 padding:10px;
                 clear:both;
-                border: 1px solid black;
             }
 
         </style>

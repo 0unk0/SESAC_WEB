@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+    <head>
+
+    </head>
+    <body>
+        <h1>DOM/JS 이해하기</h1>
+        <p>DOM이 무엇인지 배워봅시다</p>
+        <p id="demo"></p>
+        <button type="button" onclick="document.getElementById('demo').innerHTML=Date()">Click Me</button>
+        <h1>버튼을 이용한 값 변경</h1>
+        <div id="result">0</div>
+        <div>
+            <button onclick="number_inc()">증가</button>
+            <button onclick="number_dec()">감소</button>
+        </div>
+
+
+
+
+        <script>
+            function number_inc(){
+                console.log("버튼 클릭");
+                result=document.getElementById('result').innerHTML; /*글자로 읽어와짐*/
+                new_result=parseInt(result)+1;
+                console.log("result=", result);
+                document.getElementById('result').innerHTML=new_result;
+            }
+
+            function number_dec(){
+                result=document.getElementById('result').innerHTML;
+                new_result=parseInt(result)-1;
+                document.getElementById('result').innerHTML=new_result;
+            }
+
+            
+        </script>
+    </body>
+</html>

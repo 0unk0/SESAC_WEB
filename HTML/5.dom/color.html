@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+    <head>
+
+    </head>
+    <body>
+        <p id="myText">아무거나</p>
+        <button onclick="changeColor_RED()">RED 색상</button>
+        <button onclick="changeColor_BLUE()">BLUE 색상</button>
+        <button id="color" onclick="changeColor()" style="background-color: lightcoral;">RED</button>
+
+
+        <button onclick="addElement()">내용 추가</button>
+        <button onclick="rmElement()">내용 삭제</button>
+
+        <button onclick="myfunc()">내 버튼</button>
+
+        <script>
+            function myfunc(){
+                console.log(screen.width, screen.height);
+                console.log(window.innerWidth, window.innerHeight);
+            }
+            function addElement(){
+                var div = document.createElement("div");
+                div.textContent = "새로운 내용";
+                document.body.appendChild(div);
+            }
+
+            function rmElement(){
+                var div = document.querySelector("div");
+                div.remove(div);
+            }
+
+
+            function changeColor_RED(){
+                var textElement = document.getElementById("myText");
+                textElement.style.color="red";
+            }
+
+            function changeColor_BLUE(){
+                var textElement = document.getElementById("myText");
+                textElement.style.color="blue";
+            }
+
+            function changeColor(){
+                var textElement = document.getElementById("myText");
+                var current_color=textElement.style.color;
+                    
+
+                if(current_color==="blue"||current_color===""){
+                    textElement.style.color="red";
+                    document.getElementById("color").innerText="BLUE";
+                    document.getElementById("color").style.backgroundColor="lightblue";
+
+
+                }
+                else if(current_color==="red"){
+                    textElement.style.color="blue";
+                    document.getElementById("color").innerText="RED";
+                    document.getElementById("color").style.backgroundColor="lightcoral";
+                }
+            }
+
+
+
+        </script>
+    </body>
+</html>
