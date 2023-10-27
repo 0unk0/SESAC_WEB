@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+    <head>
+        <title>
+            Auto Refresh Example
+        </title>
+
+        <script>
+            window.onload=function(){ // 윈도우 내 페이지가 로딩이 끝났을 떄
+                setTimeout(function(){ // 정해진 시간 이후에 안쪽의 함수를 실행하라
+                    location.reload(); // reload를 해라
+
+                }, 3000); // 3000ms = 3초
+            }
+        </script>
+    </head>
+    <body>
+        <button onclick="showhide()">버튼</button>
+        <div id="myDiv">
+            여기에 원하는 내용을 작성하시오
+        </div>
+        <script>
+            function showhide(){
+                divElement = document.getElementById('myDiv');
+
+                if(divElement.style.display==="none"){
+                    divElement.style.display="block";
+                }
+                
+                else {
+                    divElement.style.display="none";
+                }
+                
+            }
+        </script>
+    </body>
+</html>
