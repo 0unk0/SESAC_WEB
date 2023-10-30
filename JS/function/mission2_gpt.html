@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  /* 기본 스타일 설정 */
+  .container {
+    position: relative;
+  }
+
+  .div1 {
+    width: 100px;
+    height: 100px;
+    background-color: lightblue;
+    position: absolute;
+    z-index: 0; /* div1을 초기에 아래로 설정합니다. */
+    top: 0; /* div1의 시작 위치를 0px로 설정 */
+    opacity: 0.5; /* 투명도를 0.5로 설정 */
+    transition: z-index 0.3s, opacity 0.5s; /* 트랜지션 효과 추가 */
+  }
+
+  .div1:hover {
+    z-index: 2;
+    opacity: 1; /* 투명도를 1로 변경 */
+  }
+
+  .div2 {
+    width: 100px;
+    height: 100px;
+    background-color: lightcoral;
+    position: absolute;
+    z-index: 1; /* div2를 초기에 위로 설정합니다. */
+    top: 50px; /* div2의 시작 위치를 50px로 설정 */
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="div1">
+    <p>상단 내용</p>
+  </div>
+  <div class="div2">하단 내용</div>
+</div>
+
+</body>
+</html>
