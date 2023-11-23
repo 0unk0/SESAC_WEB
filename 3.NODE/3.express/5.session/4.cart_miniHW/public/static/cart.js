@@ -5,10 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
       displayCart(cart);
     });
 });
-let total = 0;
 
 function displayCart(cart) {
-  console.log("cart다람쥐", cart);
   const cartTableBody = document.querySelector("#cartTable tbody");
   cartTableBody.innerHTML = "";
 
