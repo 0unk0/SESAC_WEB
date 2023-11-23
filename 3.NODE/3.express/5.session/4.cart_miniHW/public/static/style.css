@@ -1,0 +1,21 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  margin-bottom: 50px;
+}
+
+th {
+  background-color: lightblue;
+}
+
+th,
+td {
+  border: 1px solid lightgrey;
+  height: 30px;
+  padding: 10px;
+}
+
+button {
+  cursor: pointer;
+}
