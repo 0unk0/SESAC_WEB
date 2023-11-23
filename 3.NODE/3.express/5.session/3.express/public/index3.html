@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login Page</title>
+    <style>
+      nav {
+        background-color: lightblue;
+        overflow: hidden;
+      }
+
+      nav ul {
+        list-style-type: none;
+        margin: 0px;
+        padding: 0px;
+        overflow: hidden;
+      }
+
+      nav ul li {
+        float: left;
+      }
+
+      nav a {
+        display: block;
+        padding: 14px 16px;
+        text-decoration: none;
+        color: black;
+      }
+
+      nav a:hover {
+        background-color: lightskyblue;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Login</a></li>
+        <li><a href="/profile">Profile</a></li>
+        <li><a href="/logout">Logout</a></li>
+      </ul>
+    </nav>
+
+    <h1>Login3</h1>
+    <div id="loginFormContainer">
+      <form id="loginForm">
+        Username:
+        <input type="text" id="username" name="username" placeholder="아이디를 입력하세요" />
+        <br />
+        Password:
+        <input type="password" id="password" name="password" placeholder="비밀번호를 입력하세요" />
+        <br />
+        <button type="button" onclick="login()">로그인</button>
+      </form>
+    </div>
+
+    <!-- 로그인 한 사용자의 정보를 보여줄 공간 -->
+    <div id="profile" style="display: none">
+      <h2>Welcome, <span id="usernameSpan"></span>님!</h2>
+      <button onclick="logout()">Logout</button>
+    </div>
+
+    <script src="./static/js/login3.js"></script>
+  </body>
+</html>

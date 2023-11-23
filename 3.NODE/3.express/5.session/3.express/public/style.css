@@ -1,0 +1,15 @@
+nav {
+  background-color: lightblue;
+  overflow: hidden;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+}
+
+nav ul li {
+  float: left;
+}
