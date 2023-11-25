@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("/products")
+  fetch("/api/products")
     .then((response) => response.json())
     .then((products) => {
       displayProduct(products);
@@ -22,14 +22,11 @@ function displayProduct(products) {
 }
 
 function addToCart(productId) {
-  fetch(`/add-to-cart/${productId}`)
+  fetch(`/api/cart/${productId}`)
     .then((response) => response.json())
     .then((product) => {
-      alert(product.message);
-      fetch("/cart")
+      fetch("/api/cart")
         .then((response) => response.json())
-        .then((cart) => {
-          window.location.href = "/cart.html";
-        });
+        .then((cart) => {});
     });
 }

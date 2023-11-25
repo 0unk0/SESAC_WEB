@@ -1,8 +1,19 @@
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("/cart")
+  fetch("/api/cart")
     .then((response) => response.json())
     .then((cart) => {
-      displayCart(cart);
+      fetch("/api/check-login")
+        .then((response) => {
+          if (response.status === 200) {
+            return response.json();
+          } else {
+            alert("로그인이 필요합니다.");
+            window.location.href = "/";
+          }
+        })
+        .then(() => {
+          displayCart(cart);
+        });
     });
 });
 
@@ -42,7 +53,7 @@ function calculateTotalAmout(cart) {
 }
 
 function increaseQuantity(productId) {
-  fetch(`/update-quantity/${productId}?change=1`, { method: "POST" })
+  fetch(`/api/cart/${productId}/1`, { method: "PUT" })
     .then((response) => response.json())
     .then((cart) => {
       displayCart(cart);
@@ -50,7 +61,7 @@ function increaseQuantity(productId) {
 }
 
 function decreaseQuantity(productId) {
-  fetch(`/update-quantity/${productId}?change=-1`, { method: "POST" })
+  fetch(`/api/cart/${productId}?change=-1`, { method: "POST" })
     .then((response) => response.json())
     .then((cart) => {
       displayCart(cart);
@@ -58,7 +69,7 @@ function decreaseQuantity(productId) {
 }
 
 function removeFromCart(productId) {
-  fetch(`/remove-from-cart/${productId}`, { method: "POST" })
+  fetch(`/api/cart/${productId}`, { method: "DELETE" })
     .then((response) => response.json())
     .then((cart) => {
       displayCart(cart);
