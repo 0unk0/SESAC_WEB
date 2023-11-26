@@ -8,11 +8,23 @@ nav ul {
   margin: 0px;
   padding: 0px;
   overflow: hidden;
+  float: left;
 }
 
 nav ul li {
   padding: 16px;
   float: left;
+}
+
+#navUser {
+  padding: 16px;
+  float: right;
+  color: white;
+  display: none;
+}
+
+#navLogout {
+  text-decoration: underline;
 }
 
 a {

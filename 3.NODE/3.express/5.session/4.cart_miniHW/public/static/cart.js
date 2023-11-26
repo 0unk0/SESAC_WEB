@@ -39,7 +39,7 @@ function displayCart(cart) {
 
   const total = calculateTotalAmout(cart);
 
-  const totalRow = document.createElement("tr");
+  const totalRow = document.querySelector("#cartTable tfoot");
   totalRow.innerHTML = `
     <td colspan="3"></td>  
     <td>Total:</td>

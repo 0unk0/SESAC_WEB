@@ -1,3 +1,7 @@
+document.addEventListener("DOMContentLoaded", () => {
+  checkLoginStatus();
+});
+
 function login() {
   let username = document.getElementById("username").value;
   let password = document.getElementById("password").value;
@@ -58,6 +62,8 @@ function showProfile(username) {
   document.getElementById("loginForm").style.display = "none";
   document.getElementById("profile").style.display = "block";
   document.getElementById("usernameSpan").innerText = username;
+  document.getElementById("navUser").style.display = "block";
+  document.getElementById("navUsernameSpan").innerText = username;
 }
 
 function showLoginForm() {
@@ -65,4 +71,5 @@ function showLoginForm() {
   document.getElementById("password").value = "";
   document.getElementById("loginForm").style.display = "block";
   document.getElementById("profile").style.display = "none";
+  document.getElementById("navUser").style.display = "none";
 }
