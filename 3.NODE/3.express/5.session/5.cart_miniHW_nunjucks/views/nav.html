@@ -4,9 +4,10 @@
     <li><a href="/products">Products</a></li>
     <li><a href="/cart">Cart</a></li>
   </ul>
-
+  {% if username %}
   <div id="navUser">
-    <span id="navUsernameSpan"></span>님
+    <span>{{ username }}님</span>
     <a id="navLogout" href="/" onclick="logout()">Logout</a>
   </div>
+  {% endif %}
 </nav>

@@ -1,7 +1,3 @@
-document.addEventListener("DOMContentLoaded", () => {
-  checkLoginStatus();
-});
-
 function login() {
   let username = document.getElementById("username").value;
   let password = document.getElementById("password").value;
@@ -21,7 +17,6 @@ function login() {
       }
     })
     .then((data) => {
-      console.log(data.message);
       alert(data.message);
       checkLoginStatus();
     })
@@ -36,7 +31,7 @@ function logout() {
     .then((response) => response.json())
     .then((data) => {
       alert(data.message);
-      showLoginForm();
+      location.reload();
     });
 }
 
@@ -45,31 +40,14 @@ function checkLoginStatus() {
     .then((response) => response.json())
     .then((data) => {
       if (data.username) {
-        showProfile(data.username);
         console.log("사용자 이름:", data.username);
       } else {
-        showLoginForm();
         console.log("로그인된 사용자 없음");
       }
+      location.reload();
     })
     .catch((error) => {
       console.error("로그인 상태 확인 오류:", error);
-      showLoginForm();
+      location.reload();
     });
-}
-
-function showProfile(username) {
-  document.getElementById("loginForm").style.display = "none";
-  document.getElementById("profile").style.display = "block";
-  document.getElementById("usernameSpan").innerText = username;
-  document.getElementById("navUser").style.display = "block";
-  document.getElementById("navUsernameSpan").innerText = username;
-}
-
-function showLoginForm() {
-  document.getElementById("username").value = "";
-  document.getElementById("password").value = "";
-  document.getElementById("loginForm").style.display = "block";
-  document.getElementById("profile").style.display = "none";
-  document.getElementById("navUser").style.display = "none";
 }

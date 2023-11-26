@@ -1,16 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("/api/cart")
-    .then((response) => response.json())
-    .then(() => {
-      fetch("/api/check-login").then((response) => {
-        if (response.status === 200) {
-          return response.json();
-        } else {
-          alert("로그인이 필요합니다.");
-          window.location.href = "/";
-        }
-      });
-    });
+  fetch("/api/check-login").then((response) => {
+    if (response.status === 200) {
+      return response.json();
+    } else {
+      alert("로그인이 필요합니다.");
+      window.location.href = "/";
+    }
+  });
 });
 
 function increaseQuantity(productId) {
@@ -29,7 +25,7 @@ function fetchCart(input, method) {
   fetch(input, { method: method })
     .then((response) => response.json())
     .then(() => {
-      window.location.href = "/cart";
+      location.reload();
     });
 }
 
