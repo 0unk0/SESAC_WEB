@@ -28,6 +28,12 @@ app.use(
   })
 );
 
+app.use((req, res, next) => {
+  console.log("req.method: ", req.method);
+  console.log("req.url: ", req.url);
+  next();
+});
+
 app.use("/", mainRoutes);
 app.use("/api", authRoutes);
 app.use("/api/cart", cartRoutes);
