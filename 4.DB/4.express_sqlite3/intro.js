@@ -9,10 +9,9 @@ const dbFile = "mydb1.db";
 
 const db = new sqlite3.Database(dbFile);
 
-app.use((req, res, next) => {
-  console.log(req.url);
-  next();
-});
+// ?(placeholder) 사용 -> SQL Injection 방지
+// prepare: 미리 컴파일 -> 동일한 쿼리 여러번 실행시 성능상 이점O
+//                      placeholder통해 사용자의 입력값 안전하게 바인딩
 
 app.get("/:table", (req, res) => {
   const db_table = req.params.table;
