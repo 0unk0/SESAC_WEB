@@ -41,7 +41,14 @@ function init_database() {
     console.log(sql);
     db.exec(sql, (err) => {
       if (err) {
-        reject(err);
+        const DB_ALREADY_INITIALIZED = 19;
+        // if (err.errno == DB_ALREADY_INITIALIZED) {
+        if (err.code === "SQLITE_CONSTRAINT") {
+          console.warn("초기화 이미 되어있음");
+          resolve();
+        } else {
+          reject(err);
+        }
       } else {
         console.log("초기화 성공");
         resolve();
