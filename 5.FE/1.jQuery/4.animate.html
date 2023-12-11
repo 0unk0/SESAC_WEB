@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery</title>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <style>
+            .myDiv {
+                width: 100px;
+                height: 100px;
+                margin: 10px;
+                display: inline-block;
+                background-color: lightblue;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="box1" class="myDiv" style="background-color: lightblue;"></div>
+        <div id="box2" class="myDiv" style="background-color: lightgreen;"></div>
+        <div id="box3" class="myDiv" style="background-color: lightcoral;"></div>
+    </body>
+
+    <script>
+        $(document).ready(function () {
+            $("#box1").click(function() {
+                $(this).fadeOut().fadeIn();
+            })
+            $("#box2").click(function() {
+                $(this).slideUp().slideDown();
+            })
+            $("#box3").click(function() {
+                $(this).animate({
+                    opacity: 0.5,
+                    width: "50%"
+                }, 1000).animate({
+                    opacity: 1,
+                    width: $(this).width()
+                }, 1000)
+            })
+        });
+    </script>
+</html>
