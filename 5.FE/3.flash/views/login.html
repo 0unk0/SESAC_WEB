@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>플래시 메세지 테스트</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  </head>
+  <body>
+    {% if successMessage.length > 0 %} {% for Message in successMessage %}
+    <div class="alert alert-{{Message.type}} alert-dismissible fade show" role="alert">
+      <p>{{Message.text}}</p>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %} {% endif %} {% if errorMessage.length > 0 %}
+    <div class="alert alert-danger">
+      <p>{{errorMessage}}</p>
+    </div>
+    {% endif %}
+
+    <form action="/login" method="post">
+      <label for="username">Username: </label>
+      <input class="form-control" type="text" id="username" name="username" />
+      <br />
+      <label for="password">Password: </label>
+      <input class="form-control" type="password" id="password" name="password" />
+      <button class="btn btn-primary" type="submit">로그인</button>
+    </form>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"></script>
+    <script>
+      // flash 메세지 닫기
+      function closeFlashMessage(flashAlert) {
+        var bsAlert = new bootstrap.Alert(flashAlert);
+        bsAlert.close();
+      }
+
+      // jQuery
+      $(document).ready(() => {
+        var flashAlerts = $(".alert");
+        if (flashAlerts.length > 0) {
+          flashAlerts.each((index, flashAlert) => {
+            setTimeout(() => {
+              closeFlashMessage(flashAlert);
+            }, 3000 + index * 1000);
+          });
+        }
+      });
+
+      //   document.addEventListener("DOMContentLoaded", () => {
+      //     var flashAlerts = document.querySelectorAll(".alert");
+      //     console.log(flashAlerts);
+
+      //     // 얼렁뚱땅 코드ㅋ (인 줄..)
+      //     if (flashAlerts.length > 0) {
+      //       flashAlerts.forEach((flashAlert, index) => {
+      //         setTimeout(() => {
+      //           closeFlashMessage(flashAlert);
+      //         }, 3000 + index * 1000);
+      //       });
+      //     }
+      //   });
+    </script>
+  </body>
+</html>
