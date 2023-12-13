@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canvas</title>
+    <style>
+      canvas {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="textCanvas" width="400" height="400"></canvas>
+    <script>
+      const canvas = document.getElementById("textCanvas");
+      const context = canvas.getContext("2d");
+
+      let x = 50;
+
+      function draw() {
+        context.clearRect(0, 0, canvas.width, canvas.height); // 도화지 매번 초기화
+        context.fillRect(x, 50, 50, 50); // x, y, width, height
+
+        x += 5;
+
+        if (x > canvas.width) {
+          x = 0;
+        }
+        requestAnimationFrame(draw);
+      }
+      draw();
+    </script>
+  </body>
+</html>

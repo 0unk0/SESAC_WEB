@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Canvas</title>
+    <style>
+      canvas {
+        border: 1px solid #000;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="barGraphCanvas" width="400" height="400"></canvas>
+
+    <script>
+      // Canvas 가져오기
+      const canvas = document.getElementById("barGraphCanvas");
+      const context = canvas.getContext("2d");
+
+      const graphData = {
+        A: 10,
+        B: 20,
+        C: 40,
+        D: 60,
+        E: 80,
+      };
+
+      drawBarGraph(graphData);
+
+      function drawBarGraph(data) {
+        const barWidth = 30;
+
+        let startX = 20;
+
+        for (const key in data) {
+          const barHeight = data[key];
+
+          context.fillStyle = "lightCoral";
+          context.fillRect(startX, 200 - barHeight, barWidth, barHeight);
+
+          context.fillStyle = "black";
+          context.fillText(key, startX + barWidth / 2, 200 + 10);
+
+          startX += 50;
+        }
+      }
+
+      function drawLineGraph(data) {
+        context.strokeStyle = "lightGreen";
+        context.lineWidth = 2;
+
+        context.beginPath();
+        let startX = 20;
+        let lineY = 350;
+
+        for (const key in data) {
+          lineY = 350 - data[key];
+          console.log(lineY);
+          context.lineTo(startX + 15, lineY);
+
+          context.fillStyle = "black";
+          context.fillText(key, startX + 15, 350 + 10);
+
+          startX += 50;
+        }
+        context.stroke(); // 렌더링
+        context.closePath();
+      }
+
+      drawLineGraph(graphData);
+    </script>
+  </body>
+</html>

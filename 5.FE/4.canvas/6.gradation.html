@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>캔바스 2</title>
+    <!-- <style>
+      canvas {
+        border: 1px solid #000;
+      }
+    </style> -->
+  </head>
+  <body>
+    <canvas id="myCanvas" width="400" height="400"></canvas>
+    <script>
+      const canvas = document.getElementById("myCanvas");
+      const context = canvas.getContext("2d");
+
+      const gradation = context.createRadialGradient(100, 100, 10, 100, 100, 200);
+      //   const gradation = context.createLinearGradient(0, 0, canvas.width, 0);
+      gradation.addColorStop(0, "lightBlue");
+      gradation.addColorStop(1, "lightCoral");
+      context.fillStyle = gradation;
+      context.fillRect(0, 0, canvas.width, canvas.height);
+
+      context.font = "30px Arial";
+      context.fillStyle = "#FFFFFF";
+      context.fillText("Canvas Text", 50, 100);
+    </script>
+  </body>
+</html>

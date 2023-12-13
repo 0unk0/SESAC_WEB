@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>캔바스 2</title>
+    <style>
+      canvas {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="textCanvas" width="400" height="200"></canvas>
+    <script>
+      const canvas = document.getElementById("textCanvas");
+      const context = canvas.getContext("2d");
+
+      context.fillText("Hello Canvas!", 50, 100); // 내용, x좌표, y좌표
+      context.fillText("Hello Canvas!", 200, 100); // 내용, x좌표, y좌표
+
+      context.fillStyle = "red"; // 속성 먼저 정의해줘야 함
+      context.fillText("빨간 글씨", 50, 150);
+
+      context.font = "italic 40px Times New Roman";
+      context.fillStyle = "blue";
+      context.fillText("Blue Italic", 200, 150);
+
+      // 함수화
+      function drawText(font, style, text, x, y) {
+        context.font = font;
+        context.fillStyle = style;
+        context.fillText(text, x, y);
+      }
+
+      drawText("30px Arial", "#0095DD", "Arial Regular", 20, 200);
+      drawText("30px 궁서체", "#000000", "궁서체다.", 200, 200);
+      drawText("bold 30px 나눔바른고딕 옛한글", "#000000", "나눔바른고딕 옛한글", 100, 50);
+    </script>
+  </body>
+</html>

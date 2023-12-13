@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Canvas</title>
+    <style>
+      canvas {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="textCanvas" width="400" height="100"></canvas>
+    <script>
+      const canvas = document.getElementById("textCanvas");
+      const context = canvas.getContext("2d");
+
+      const ball = {
+        x: 50,
+        y: 50,
+        radius: 20,
+        dx: 10,
+        dy: 30, // 초기 속도
+        gravity: 0.2, //적절한 속도
+      };
+
+      function drawBall() {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+
+        // 공 그리기
+        context.beginPath();
+        context.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+        context.fillStyle = "#0095DD";
+        context.fill();
+        context.closePath();
+
+        ball.y += ball.dy;
+        ball.x += ball.dx;
+
+        if (ball.x > canvas.width || ball.x < 0) {
+          ball.dx = -ball.dx;
+        }
+
+        if (ball.y > canvas.height || ball.y < 0) {
+          ball.dy = -ball.dy;
+        }
+
+        requestAnimationFrame(drawBall);
+      }
+
+      drawBall();
+    </script>
+  </body>
+</html>

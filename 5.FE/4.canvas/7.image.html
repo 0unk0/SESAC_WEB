@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>캔바스 2</title>
+    <style>
+      canvas {
+        border: 1px solid #000;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="400" height="400"></canvas>
+    <script>
+      const canvas = document.getElementById("myCanvas");
+      const context = canvas.getContext("2d");
+
+      const image1 = new Image();
+      image1.src = "poop.png";
+      image1.onload = function () {
+        context.drawImage(image1, 200, 100, 50, 50);
+      };
+
+      const image2 = new Image();
+      image2.src = "person.png";
+      image2.onload = function () {
+        context.drawImage(image2, 200, 300, 50, 50);
+      };
+    </script>
+  </body>
+</html>
