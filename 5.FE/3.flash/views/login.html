@@ -41,11 +41,13 @@
         bsAlert.close();
       }
 
-      // jQuery
-      $(document).ready(() => {
-        var flashAlerts = $(".alert");
+      document.addEventListener("DOMContentLoaded", () => {
+        var flashAlerts = document.querySelectorAll(".alert");
+        console.log(flashAlerts);
+
+        // 얼렁뚱땅 코드ㅋ (인 줄..)
         if (flashAlerts.length > 0) {
-          flashAlerts.each((index, flashAlert) => {
+          flashAlerts.forEach((flashAlert, index) => {
             setTimeout(() => {
               closeFlashMessage(flashAlert);
             }, 3000 + index * 1000);
@@ -53,19 +55,17 @@
         }
       });
 
-      //   document.addEventListener("DOMContentLoaded", () => {
-      //     var flashAlerts = document.querySelectorAll(".alert");
-      //     console.log(flashAlerts);
-
-      //     // 얼렁뚱땅 코드ㅋ (인 줄..)
-      //     if (flashAlerts.length > 0) {
-      //       flashAlerts.forEach((flashAlert, index) => {
-      //         setTimeout(() => {
-      //           closeFlashMessage(flashAlert);
-      //         }, 3000 + index * 1000);
-      //       });
-      //     }
-      //   });
+      // jQuery
+      // $(document).ready(() => {
+      //   var flashAlerts = $(".alert");
+      //   if (flashAlerts.length > 0) {
+      //     flashAlerts.each((index, flashAlert) => {
+      //       setTimeout(() => {
+      //         closeFlashMessage(flashAlert);
+      //       }, 3000 + index * 1000);
+      //     });
+      //   }
+      // });
     </script>
   </body>
 </html>
