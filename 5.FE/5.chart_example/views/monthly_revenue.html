@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <table>
+      <h1>월간 매출액</h1>
+      <canvas id="revenueChart"></canvas>
+      <script>
+        var labels = {{ labels | safe }};
+        var revenues = {{revenues | safe }};
+        console.log(labels, revenues);
+
+        var ctx = document.getElementById("revenueChart").getContext("2d");
+        var revenueChart = new Chart(ctx, {
+            type: "bar",
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: "Monthly Revenue",
+                    data: revenues,
+                    backgroundColor: "rgba(75,192, 192, 0.2)",
+                    borderColor: "rgba(75, 192, 192, 1)",
+                    borderWidth: 1
+                }]
+            }
+        })
+      </script>
+
+      <thead>
+        <tr>
+          <th>Month</th>
+          <th>Revenue</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in rows %}
+        <tr>
+          <td>{{row.Month}}</td>
+          <td>{{row.Revenue}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>
