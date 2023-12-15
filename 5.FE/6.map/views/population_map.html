@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>서울 인구 지도</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin="" />
+    <style>
+      #map {
+        height: 600px;
+      }
+      .marker-label {
+        background-color: transparent;
+        color: white;
+        border: none;
+        font-weight: bold;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""></script>
+
+    <div id="map"></div>
+
+    <script>
+      var map = L.map("map").setView([37.578, 126.977], 13);
+
+      L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      }).addTo(map);
+
+      // 백엔드에서 보내준 데이터 확인하기
+      var seoulData = {{ seoulData | safe }}
+      console.log(seoulData);
+
+      var color;
+
+
+      for (var i = 0; i < seoulData.length; i++) {
+        color = (seoulData[i].population > 500000)
+        ? "red"
+        : (seoulData[i].population > 300000)
+        ? "orange"
+        : "green";
+
+        var marker = L.circleMarker([seoulData[i].lat, seoulData[i].lng], {
+            radius: 50,
+            fillColor: color,
+            color: color,
+            weight: 1,
+            fillOpacity: 0.5
+        }).addTo(map);
+
+        marker.bindTooltip(seoulData[i].district, {
+            parmanent: true,
+            direction: "center"
+        })
+         marker.bindPopup("<b>" + seoulData[i].district + "</b><br>인구: " + seoulData[i].population)
+      }
+    </script>
+  </body>
+</html>
