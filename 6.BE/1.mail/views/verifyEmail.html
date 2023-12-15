@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>회원가입 이메일 인증</title>
+  </head>
+  <body>
+    <h1>회원가입</h1>
+
+    <form method="post">
+      {% if code %} {% if result %}
+      <p>회원 가입이 완료되었습니다.</p>
+      {% else %}
+      <p>이메일 인증 코드가 발송되었습니다.</p>
+      <label>인증 코드: </label>
+      <input type="text" id="code" name="code" />
+      <button type="submit">인증 코드 확인</button>
+      {% endif %} {% else %}
+      <label>이메일: </label>
+      <input type="text" id="email" name="email" />
+      <button type="submit">인증 코드 발송</button> {% endif %}
+    </form>
+
+    <script></script>
+  </body>
+</html>
