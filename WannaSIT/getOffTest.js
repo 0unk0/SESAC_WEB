@@ -1,7 +1,7 @@
 const fs = require("fs");
 
 let getOffCountByTime = 305283; // csv 하차 인원 임시
-let getOffByTime = JSON.parse(fs.readFileSync("getOffTrimmed.json"));
+let getOffByTime = JSON.parse(fs.readFileSync("./testData/getOffTrimmed.json"));
 
 // 시간대 별 => 칸 별 혼잡도 => 칸 별 현재 인원
 getOffByTime.forEach((time) => {

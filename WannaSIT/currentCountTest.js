@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-let congestionByTime = JSON.parse(fs.readFileSync("congestionTrimmed.json"));
+let congestionByTime = JSON.parse(fs.readFileSync("./testData/congestionTrimmed.json"));
 
 // 시간대 별 => 칸 별 혼잡도 => 칸 별 현재 인원
 congestionByTime.forEach((time) => {
