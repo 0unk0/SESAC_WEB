@@ -49,6 +49,9 @@ async function main(outputFilePath) {
         // 혼잡도
         const CongestionData = getJSONData(`./data/json/혼잡_${station}_${dow}_${time}.json`);
         const CongestionGroups = groupData(CongestionData, "congestionCar");
+        if (station === "홍대입구") {
+          console.log(station, dow, time, CongestionGroups);
+        }
 
         // 하차 비율
         const GetOffData = getJSONData(`./data/json/하차_${station}_${dow}_${time}.json`);
@@ -118,6 +121,7 @@ function processCongestion(dow, getOffCountByTime, getOffGroup, congestionGroup)
             dow,
             hh: parseInt(time.split(":")[0]),
             mm: parseInt(time.split(":")[1]),
+            getOffCount: Math.round(getOffCountByTime),
             estimatedCount: getOffCarCount.map((count, i) => currentCount[i] - count),
           });
         }
