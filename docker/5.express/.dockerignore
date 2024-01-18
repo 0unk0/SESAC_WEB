@@ -1,0 +1,8 @@
+.dockerignore
+Dockerfile
+
+# 노드 환경이면, 노드의 호스트 환경에서 설치된 바이너리/라이브러리를 포함하면 안 됨
+node_modules
+
+# 파이썬 환경이면
+*.pyc

@@ -1,0 +1,21 @@
+version: "3.0"
+
+services: 
+  myweb1: 
+    image: mynode:4.0
+    ports:
+      - "8000:3000"
+    environment:
+      - APP_COLOR=cyan
+  myweb2: 
+    image: mynode:4.0
+    ports:
+      - "8001:3000"
+    environment:
+      - APP_COLOR=magenta
+  myweb3: 
+    image: mynode:4.0
+    ports:
+      - "8002:3000"
+    environment:
+      - APP_COLOR=yellow
