@@ -15,7 +15,8 @@ nunjucks.configure("views", {
 
 app.set("view engine", "html");
 
-app.use(morgan("dev"));
+// app.use(morgan("dev"));
+app.use(morgan("combined"));
 
 app.get("/", (req, res) => {
     res.render("hello.html", {color});
