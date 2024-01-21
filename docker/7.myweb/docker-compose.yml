@@ -1,0 +1,27 @@
+version: "3.0"
+
+services:
+  green:
+    image: mynode:4.0
+    ports:
+      - "3000:3000"
+    environment:
+      - APP_COLOR=green
+  blue:
+    image: mynode:4.0
+    ports:
+      - "3001:3000"
+    environment:
+      - APP_COLOR=blue
+  red:
+    image: mynode:4.0
+    ports:
+      - "3002:3000"
+    environment:
+      - APP_COLOR=red
+  myweb:
+    image: nginx:latest
+    ports:
+      - "8000:8000" 
+    volumes:
+      - ./sesac.conf:/etc/nginx/conf.d/sesac.conf
