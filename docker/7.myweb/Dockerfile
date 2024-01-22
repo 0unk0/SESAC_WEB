@@ -1,6 +1,6 @@
 FROM nginx
 
-COPY sesac.conf /etc/nginx/conf.d/sesac.conf
+COPY default.conf /etc/nginx/conf.d/default.conf
 COPY myweb.html /usr/share/nginx/html/index.html
 
 

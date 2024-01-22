@@ -26,11 +26,14 @@ services:
     networks:
       - mywebservice
   myweb:
-    image: myweb:2.0
+    image: nginx:latest
     ports:
       - "80:80" 
     networks:
       - mywebservice
+    volumes:
+      - ./default.conf:/etc/nginx/conf.d/default.conf
+      - ./myweb.html:/usr/share/nginx/html/index.html
 
 networks:
   mywebservice:
