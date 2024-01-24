@@ -7,17 +7,19 @@ const port = 3000;
 
 const db = new sqlite3.Database("users.db");
 
-db.run("CREATE TABLE IF NOT EXISTS users (username TEXT, password TEXT)", (err) => {
+db.run("CREATE TABLE IF NOT EXISTS users (id INT PRIMARY KEY, username TEXT, password TEXT)", (err) => {
   if (err) {
     console.log("테이블 생성 실패");
   } else {
     const initAccounts = [
-      { username: "user1", password: "pass1" },
-      { username: "user2", password: "pass2" },
+      { id: 1, username: "admin", password: "admin" },
+      { id: 2, username: "user1", password: "pass1" },
+      { id: 3, username: "user2", password: "pass2" },
+      { id: 4, username: "user3", password: "pass3" },
     ];
 
-    initAccounts.forEach(({ username, password }) => {
-      db.run("INSERT OR IGNORE INTO users (username, password) values (?, ?)", [username, password], (err) => {
+    initAccounts.forEach(({ id, username, password }) => {
+      db.run("INSERT OR IGNORE INTO users (id, username, password) values (?, ?, ?)", [id, username, password], (err) => {
         if (err) {
           console.error("데이터 삽입 실패");
         }
